@@ -1,0 +1,26 @@
+[project]
+name = "seagull"
+version = "0.1.0"
+description = "Southeast Asian Glossary Utility for Lexical Lookup (SEA-GULL)"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+dependencies = [
+    "pyahocorasick>=2.1",
+]
+
+[project.optional-dependencies]
+# HTTP API (seagull.api); run with `uvicorn seagull.api:app`.
+api = [
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
+]
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/seagull"]
